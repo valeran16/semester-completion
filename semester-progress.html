@@ -1,78 +1,48 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2487.4">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semester Countdown and Completion</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+  }
+  .widget {
+    text-align: center;
+  }
+</style>
 </head>
 <body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="en"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1">&lt;meta charset="UTF-8"&gt;</p>
-<p class="p1">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
-<p class="p1">&lt;title&gt;Semester Progress Widget&lt;/title&gt;</p>
-<p class="p1">&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>body {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>font-family: Arial, sans-serif;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>justify-content: center;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>align-items: center;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>height: 100vh;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>margin: 0;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.progress-container {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>width: 300px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>background-color: #f3f3f3;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>border-radius: 5px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>box-shadow: 0 2px 4px rgba(0,0,0,0.1);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>padding: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.progress-bar {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>background-color: #4CAF50;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>height: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>border-radius: 5px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>width: 0%;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.percent-text {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>margin-top: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}</p>
-<p class="p1">&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p1">&lt;div class="progress-container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div id="progressBar" class="progress-bar"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div id="percentText" class="percent-text"&gt;0%&lt;/div&gt;</p>
-<p class="p1">&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;script&gt;</p>
-<p class="p1">function updateProgress() {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const startDate = new Date('2024-01-09');</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const endDate = new Date('2024-05-17');</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const now = new Date();</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>const totalDuration = endDate - startDate;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const timePassed = now - startDate;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const progressPercentage = Math.min(Math.max(timePassed / totalDuration * 100, 0), 100).toFixed(2);</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById('progressBar').style.width = progressPercentage + '%';</p>
-<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById('percentText').innerText = progressPercentage + '% Completed';</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">// Update progress on load</p>
-<p class="p1">updateProgress();</p>
-<p class="p2"><br></p>
-<p class="p1">// Optionally, update the progress every day (not necessary if static)</p>
-<p class="p1">// setInterval(updateProgress, 86400000); // Update every 24 hours</p>
-<p class="p1">&lt;/script&gt;</p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+<div class="widget">
+  <h2>Semester Progress</h2>
+  <div id="countdown"></div>
+  <div id="completion"></div>
+</div>
+
+<script>
+  function calculateSemesterProgress() {
+    const startDate = new Date('January 9, 2024');
+    const endDate = new Date('May 17, 2024');
+    const today = new Date();
+
+    const totalDays = (endDate - startDate) / (1000 * 60 * 60 * 24);
+    const daysPassed = (today - startDate) / (1000 * 60 * 60 * 24);
+    const daysRemaining = (endDate - today) / (1000 * 60 * 60 * 24);
+    const completionPercentage = ((daysPassed / totalDays) * 100).toFixed(2);
+
+    document.getElementById('countdown').innerHTML = `Days Remaining: ${Math.max(0, daysRemaining.toFixed(0))}`;
+    document.getElementById('completion').innerHTML = `Completion: ${completionPercentage}%`;
+  }
+
+  // Call the function to update the widget
+  calculateSemesterProgress();
+</script>
 </body>
 </html>
